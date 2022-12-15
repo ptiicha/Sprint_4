@@ -1,2 +1,5 @@
-package Locators;public class PageObject {
+package Locators;
+
+public class PageObject {
+
 }
