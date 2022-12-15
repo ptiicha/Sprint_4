@@ -1,5 +1,13 @@
 package Locators;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+
 public class OrderScooterStatusCheck {
 
     // Кнопка «Статус заказа»
@@ -7,9 +15,6 @@ public class OrderScooterStatusCheck {
 
     // Поле для номера заказа, отслеживание заказа
     private By orderStatusField = By.cssSelector(".Header_SearchInput__3YRIQ");
-
-    // Кнопка "GO!", отслеживание заказа
-    private By orderStatusCheckButton = By.cssSelector(".Header_Button__28dPO");
 
     // Кнопка "Посмотреть статус", pop-up после успешного заказа
     private By orderStatusCheckButton = By.cssSelector(".Order_NextButton__1_rCA > button:nth-child(1)");

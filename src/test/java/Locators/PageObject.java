@@ -7,8 +7,7 @@ public class PageObject {
         this.driver = driver;
     }
 
-    public void waitForLoadPage() {
-        new WebDriverWait(driver, 10).until(driver -> (driver.findElement(cookiesYes).isEnable()));
-    }
+    //не поняла, что сюда нужно добавить
+
 }
 

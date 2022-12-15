@@ -1,6 +1,12 @@
 package Locators;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class ScooterMainPage {
     private WebDriver driver;
@@ -27,6 +33,18 @@ public class ScooterMainPage {
 
         this.driver = driver;
     }
+    public void waitForLoadPage() {
+        new WebDriverWait(driver, 10).until(driver -> (driver.findElement(cookiesYes).isEnable()));
+    }
 
+    // принять куки
+    public void clickCookiesYes() {
+        driver.findElement(cookiesYes).click();
+    }
+
+    // кликнуть на верхнюю кнопку заказа
+    public void clickOrderButtonTop() {
+        driver.findElement(orderButtonTop).click();
+    }
 
 }

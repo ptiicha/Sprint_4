@@ -1,12 +1,7 @@
 import Locators.OrderScooterForm;
 
 // не понимаю кто кому наследует
-public class OrderData extends OrderScooterForm {
-        private WebDriver driver;
-
-    public OrderData(WebDriver driver) {
-        super(driver);
-    }
+public class OrderData {
 
     // заполнить данные первой страницы
         public void setNameField(String name) {
@@ -80,7 +75,7 @@ public class OrderData extends OrderScooterForm {
             clickRentalPeriod();
             clickRentalPeriodChoose();
             clickScooterColor();
-            setOrderComment();
+            setOrderComment(comment);
 
         }
 }
