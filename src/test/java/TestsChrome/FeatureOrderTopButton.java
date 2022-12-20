@@ -1,22 +1,16 @@
 package TestsChrome;
 
-import Locators.OrderScooterForm;
-import Locators.ScooterMainPage;
-import org.junit.Before;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import io.github.bonigarcia.wdm.WebDriverManager;
+import Locators.PageObjects.OrderScooterForm;
+import Locators.PageObjects.ScooterMainPage;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.After;
+import org.openqa.selenium.WebDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 
-        // не понимаю как вызвать бефор и тест
-public class TestOrder {
+
+public class FeatureOrderTopButton {
 
             @Before
             public void startUp() {
@@ -25,7 +19,7 @@ public class TestOrder {
 
             private WebDriver driver;
 
-            public TestOrder(WebDriver driver) {
+            public FeatureOrderTopButton(WebDriver driver) {
                 this.driver = driver;
             }
 
@@ -59,7 +53,11 @@ public class TestOrder {
                 objOrderForm.clickConfirmationApproveButton();
 
                 // сохранить номер заказа
-                objOrderForm.saveOrderNumber(); // как его сохранить в переменную?
+                String ordNumber = objOrderForm.saveOrderNumber();
+                String s1 = ordNumber;   // поскольку в тексте с номером заказа есть буквы, попыталась достать только цифры
+                String[] s2_array = s1.split("\\D+");
+                Integer orderNumbers = Integer.parseInt(String.join("", s2_array));
+                System.out.println("Номер заказа: " + orderNumbers);
             }
 
             @After
