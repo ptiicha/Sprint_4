@@ -1,9 +1,9 @@
-package Locators;
+package Locators.PageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class OrderScooterForm {
+public class OrderScooterForm { //  это пэйдж обджект
     private WebDriver driver;
     public OrderScooterForm(WebDriver driver){
         this.driver = driver;
@@ -18,7 +18,7 @@ public class OrderScooterForm {
     //не понимаю, как сокращать локаторы((
 
     // Поле "Фамилия"
-    private By surnameField = By.xpath("/html/body/div/div/div[2]/div[2]/div[2]/input);
+    private By surnameField = By.xpath("/html/body/div/div/div[2]/div[2]/div[2]/input");
 
     // Поле "Адрес"
     private By addressField = By.xpath("/html/body/div/div/div[2]/div[2]/div[3]/input");
@@ -155,11 +155,12 @@ public class OrderScooterForm {
 
     // дождаться попап с подтверждением заказа
     public void waitForOrderNumber() {
-        new WebDriverWait(driver, 10).until(driver -> (driver.findElement(confirmationApprovePopUp).isEnable()));
+        new WebDriverWait(driver, 10).until(driver -> (driver.findElement(confirmationApprovePopUp)));
     }
     // извлечь номер заказа
     public String saveOrderNumber() {
-        driver.findElement(orderNumber).getText(); // не могу придумать, как отсюда взять только вторую строчку с номером заказа
+        driver.findElement(orderNumber).getText();// сохранение номера заказа
+        return null;
     }
 
 
@@ -168,7 +169,7 @@ public class OrderScooterForm {
         setSurnameField(surname);
         setAddressField(address);
         clickMetroField();
-        clickMetroChoose();
+        clickMetroChoose(); // по индексу //*[@id="root"]/div/div[2]/div[2]/div[4]/div/div[2]/ul/li[1]/button/div[2]
         setPhoneNumberField(phone);
         clickNextButton(); // нужно ли тут ждать когда прогрузится вторая страница заказа
         clickCalendar();
@@ -176,7 +177,7 @@ public class OrderScooterForm {
         clickRentalPeriod();
         clickRentalPeriodChoose();
         clickScooterColor();
-        setOrderComment();
+        setOrderComment(comment);
         clickOrderDone();
         clickConfirmationApproveButton();
     }

@@ -1,4 +1,4 @@
-package Locators;
+package Locators.PageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -46,5 +46,9 @@ public class ScooterMainPage {
     public void clickOrderButtonTop() {
         driver.findElement(orderButtonTop).click();
     }
+
+    // кликнуть на нижнюю кнопку заказа
+    public void clickOrderButtonMiddle() {
+        driver.findElement(orderButtonMiddle).click(); } //доскроллить
 
 }
